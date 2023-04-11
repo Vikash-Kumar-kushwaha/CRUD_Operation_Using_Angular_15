@@ -1,0 +1,117 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "firstName": "Prakash",
+      "lastName": "Kumar",
+      "email": "pksingh@gmail.com",
+      "dob": "2023-04-18T18:30:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "facebook",
+      "experience": 2,
+      "package": 12,
+      "id": 2
+    },
+    {
+      "firstName": "Vikash",
+      "lastName": "Kumar",
+      "email": "bikash@gmail.com",
+      "dob": "2023-04-18T18:30:00.000Z",
+      "gender": "male",
+      "education": "Intermediate",
+      "company": "Hexagon",
+      "experience": 3,
+      "package": 12,
+      "id": 3
+    },
+    {
+      "firstName": "Ram",
+      "lastName": "rahim",
+      "email": "lafso@gmail.com",
+      "dob": "2023-04-17T18:30:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Social Networking",
+      "experience": 5,
+      "package": 6,
+      "id": 4
+    },
+    {
+      "firstName": "Vikash",
+      "lastName": "kumar",
+      "email": "bikashkumarbxr1999@gmail.com",
+      "dob": "2023-04-17T18:30:00.000Z",
+      "gender": "male",
+      "education": "Post Graduate",
+      "company": "Social Networking",
+      "experience": 4,
+      "package": 12,
+      "id": 5
+    },
+    {
+      "firstName": "kjabdk",
+      "lastName": "kjnk",
+      "email": "kjkjk",
+      "dob": "2023-04-18T18:30:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "pogo",
+      "experience": 5,
+      "package": 12,
+      "id": 7
+    },
+    {
+      "firstName": "kljnkdn",
+      "lastName": "kjahdb",
+      "email": "87234r`",
+      "dob": "",
+      "gender": "male",
+      "education": "Post Graduate",
+      "company": "",
+      "experience": 12,
+      "package": "",
+      "id": 8
+    },
+    {
+      "firstName": "Prakash",
+      "lastName": "Kumar",
+      "email": "pksingh@gmail.com",
+      "dob": "2023-04-18T18:30:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Google",
+      "experience": 2,
+      "package": 6,
+      "id": 9
+    },
+    {
+      "firstName": "Phani ",
+      "lastName": "jamula",
+      "email": "slkdlj@gmail.com",
+      "dob": "2023-04-20T18:30:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Bitapps",
+      "experience": 4,
+      "package": 12,
+      "id": 10
+    }
+  ]
+}
