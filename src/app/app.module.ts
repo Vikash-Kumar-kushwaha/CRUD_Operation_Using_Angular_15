@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AddEmployeeComponent,
     UsdInrPipe,
     EmployeeTableDataComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSortModule,
     MatSnackBarModule,
   ],
-  providers: [EmployeeTableDataComponent],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

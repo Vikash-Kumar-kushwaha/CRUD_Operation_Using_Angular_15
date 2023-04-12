@@ -62,7 +62,7 @@
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="empForm.get('dob')!.errors?.['pattern']"
+          <mat-error *ngIf="empForm.get('dob')!.hasError('pattern')"
             >Data Format Invalid</mat-error
           >
         </mat-form-field>
@@ -75,9 +75,6 @@
           <mat-radio-button value="male">Male</mat-radio-button>
           <mat-radio-button value="Female">Female</mat-radio-button>
           <mat-radio-button value="Others">Others</mat-radio-button>
-          <mat-error *ngIf="empForm!.errors?.['required']"
-            ><small>Gender is required</small></mat-error
-          >
         </mat-radio-group>
       </div>
     </div>
@@ -106,7 +103,12 @@
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Experience</mat-label>
-          <input matInput placeholder="Ex. 4" formControlName="experience" />
+          <input
+            type="number"
+            matInput
+            placeholder="Ex. 4"
+            formControlName="experience"
+          />
           <mat-error *ngIf="empForm.get('experience')!.errors?.['required']"
             >Atleast 0 to 2 years is required</mat-error
           >
@@ -116,6 +118,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Package</mat-label>
           <input
+            type="number"
             matInput
             placeholder="{{ '400000' | currency : 'INR' }}"
             formControlName="package"

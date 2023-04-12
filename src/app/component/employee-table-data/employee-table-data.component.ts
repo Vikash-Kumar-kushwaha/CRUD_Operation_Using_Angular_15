@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { AddEmployeeComponent } from 'src/app/add-employee/add-employee.component';
 import { CoreService } from 'src/app/core/core.service';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-employee-table-data',
@@ -59,12 +60,28 @@ export class EmployeeTableDataComponent implements OnInit {
   }
 
   deleteEmployeeData(id: number) {
-    this._empService.deleteEmployeeData(id).subscribe({
-      next: (res) => {
-        this._coreService.openSnackBar('Deleted Succesfully', 'Done');
-        this.getEmployeeData();
+    const dialogRef = this._dialog.open(DialogBoxComponent, {
+      data: {
+        message: 'Are you sure you want to delete this data',
+        buttonText: {
+          ok: 'Delete',
+          cancel: 'Cancel',
+        },
       },
-      error: console.log,
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        // Call the delete function here with the given id
+        // this.deleteItem(id);
+        this._empService.deleteEmployeeData(id).subscribe({
+          next: (res) => {
+            this._coreService.openSnackBar('Deleted Succesfully', 'Done');
+            this.getEmployeeData();
+          },
+          error: console.log,
+        });
+      }
     });
   }
 

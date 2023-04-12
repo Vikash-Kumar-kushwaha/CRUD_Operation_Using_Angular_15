@@ -15,6 +15,7 @@ import { CoreService } from '../core/core.service';
   styleUrls: ['./add-employee.component.scss'],
 })
 export class AddEmployeeComponent implements OnInit {
+  isSubmitted = false;
   empForm: FormGroup;
   educationLevel = ['Diploma', 'Intermediate', 'Graduate', 'Post Graduate'];
 
@@ -29,11 +30,8 @@ export class AddEmployeeComponent implements OnInit {
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      dob: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^\d{1,2}\.\d{1,2}\.\d{4}$/),
-      ]),
-      gender: new FormControl('', [Validators.required]),
+      dob: new FormControl('', [Validators.required]),
+      gender: new FormControl('male', [Validators.required]),
       education: new FormControl('', [Validators.required]),
       company: new FormControl('', [Validators.required]),
       experience: new FormControl('', [Validators.required]),
