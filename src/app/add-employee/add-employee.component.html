@@ -11,12 +11,23 @@
             matInput
             formControlName="firstName"
           />
+          <mat-error *ngIf="empForm.get('firstName')!.errors?.['required']"
+            >first Name is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Kumar" formControlName="lastName" />
+          <input
+            matInput
+            placeholder="Kumar"
+            formControlName="lastName"
+            required
+          />
+          <mat-error *ngIf="empForm.get('lastName')!.errors?.['required']"
+            >last name is required</mat-error
+          >
         </mat-form-field>
       </div>
     </div>
@@ -29,19 +40,31 @@
             placeholder="xyz@gmail.com"
             matInput
             formControlName="email"
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
           />
+          <mat-error *ngIf="empForm.get('email')!.errors?.['required']"
+            >Email is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Date of birth</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="dob" />
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="dob"
+            required
+          />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="empForm.get('dob')!.errors?.['pattern']"
+            >Data Format Invalid</mat-error
+          >
         </mat-form-field>
       </div>
     </div>
@@ -52,6 +75,9 @@
           <mat-radio-button value="male">Male</mat-radio-button>
           <mat-radio-button value="Female">Female</mat-radio-button>
           <mat-radio-button value="Others">Others</mat-radio-button>
+          <mat-error *ngIf="empForm!.errors?.['required']"
+            ><small>Gender is required</small></mat-error
+          >
         </mat-radio-group>
       </div>
     </div>
@@ -64,6 +90,9 @@
               {{ val }}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="empForm.get('education')!.errors?.['required']"
+            >Education is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="col-md-6">
@@ -77,25 +106,25 @@
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Experience</mat-label>
-          <input
-            type="number"
-            matInput
-            placeholder="Ex. 4"
-            formControlName="experience"
-          />
+          <input matInput placeholder="Ex. 4" formControlName="experience" />
+          <mat-error *ngIf="empForm.get('experience')!.errors?.['required']"
+            >Atleast 0 to 2 years is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Package</mat-label>
           <input
-            type="number"
             matInput
             placeholder="{{ '400000' | currency : 'INR' }}"
             formControlName="package"
           />
           <mat-hint
             >In Doller{{ empForm.value.package | usdInr : 0.012 }}</mat-hint
+          >
+          <mat-error *ngIf="empForm.get('package')!.errors?.['required']"
+            >Package is required</mat-error
           >
         </mat-form-field>
       </div>

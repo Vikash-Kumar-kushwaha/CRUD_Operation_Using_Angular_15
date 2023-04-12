@@ -1,5 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
@@ -21,15 +26,18 @@ export class AddEmployeeComponent implements OnInit {
     private _dialogRef: MatDialogRef<AddEmployeeComponent>
   ) {
     this.empForm = this._formbuilder.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      package: '',
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      dob: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\d{1,2}\.\d{1,2}\.\d{4}$/),
+      ]),
+      gender: new FormControl('', [Validators.required]),
+      education: new FormControl('', [Validators.required]),
+      company: new FormControl('', [Validators.required]),
+      experience: new FormControl('', [Validators.required]),
+      package: new FormControl('', [Validators.required]),
     });
   }
   ngOnInit(): void {
